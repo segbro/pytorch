@@ -6,7 +6,6 @@ RUN mim install "mmcv==2.0.0"
 RUN pip install "mmsegmentation>=1.0.0"
 RUN pip install "mmdet>=3.0.0"
 RUN pip install xformers=='0.0.20' # optional for DINOv2
-RUN pip install -r requirements.txt
 RUN pip install future tensorboard
 RUN pip install numpy==1.26.4
 RUN pip install ftfy
