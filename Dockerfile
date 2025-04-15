@@ -1,5 +1,7 @@
 FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
 
+RUN apt-get update && apt-get install -y libgl1-mesa-glx libpci-dev curl nano psmisc zip git && apt-get --fix-broken install -y
+
 RUN pip install -U openmim
 RUN mim install mmengine
 RUN mim install "mmcv==2.0.0"
