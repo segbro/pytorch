@@ -11,11 +11,11 @@ RUN apt update && \
 WORKDIR /temp
 
 # 下载python
-RUN wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz && \
-    tar -xvf Python-3.9.10.tgz
+RUN wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz && \
+    tar -xvf Python-3.8.5.tgz
 
 # 编译&安装python
-RUN cd Python-3.9.10 && \
+RUN cd Python-3.8.5 && \
     ./configure --enable-optimizations && \
     make && \
     make install
@@ -26,20 +26,8 @@ RUN rm -r /temp && \
     ln -s /usr/local/bin/python3 /usr/local/bin/python && \
     ln -s /usr/local/bin/pip3 /usr/local/bin/pip
 
-RUN pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2
+RUN pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
 
 RUN pip install -U openmim
-RUN mim install mmengine
-RUN mim install "mmcv==2.0.0"
-RUN pip install "mmsegmentation>=1.0.0"
-RUN pip install "mmdet>=3.0.0"
-RUN pip install xformers=='0.0.20' # optional for DINOv2
-RUN pip install future tensorboard
-RUN pip install numpy==1.26.4
-RUN pip install ftfy
-RUN pip install scipy
-RUN pip install prettytable
-RUN pip install matplotlib
-RUN pip install regex
-RUN pip install timm
-RUN pip install einops
+RUN mim install mmcv-full==1.7.0
+RUN pip install yapf==0.32.0
