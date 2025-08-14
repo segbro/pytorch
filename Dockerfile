@@ -1,5 +1,10 @@
 FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime
 
+#定义时区参数
+ENV TZ=Asia/Shanghai
+#设置时区
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo '$TZ' > /etc/timezone
+
 RUN apt-get update
 RUN apt-get -y install libglib2.0-dev
 RUN apt-get -y install libsm6
