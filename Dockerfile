@@ -8,10 +8,10 @@ RUN apt-get -y install libxext-dev
 RUN apt -y --fix-broken install
 RUN apt -y install libgl1-mesa-glx
 
-pip install -U openmim
-mim install mmengine
-mim install mmcv==2.1.0
-pip install pycocotools
-pip install shapely
-pip install terminaltables
-pip install scipy
+RUN pip install -U openmim
+RUN mim install mmengine
+RUN mim install mmcv==2.1.0
+RUN pip install pycocotools
+RUN pip install shapely
+RUN pip install terminaltables
+RUN pip install scipy
