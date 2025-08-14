@@ -15,4 +15,3 @@ RUN pip install pycocotools
 RUN pip install shapely
 RUN pip install terminaltables
 RUN pip install scipy
-
